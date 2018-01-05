@@ -9,7 +9,7 @@ package jobs
 
 import (
 	"github.com/astaxie/beego"
-	"github.com/george518/PPGo_Job/crons"
+	"github.com/lorock/PPGo_Job/crons"
 	"sync"
 )
 

@@ -8,15 +8,15 @@ PPGo_Job
 效果展示
 ----
 任务界面<br/>
-![github](https://github.com/george518/PPGo_Job/blob/master/static/images/task.png?raw=true "github")
+![github](https://github.com/lorock/PPGo_Job/blob/master/static/images/task.png?raw=true "github")
 <br/><br/>
 添加服务器界面<br/>
-![github](https://github.com/george518/PPGo_Job/blob/master/static/images/server.png?raw=true "github")
+![github](https://github.com/lorock/PPGo_Job/blob/master/static/images/server.png?raw=true "github")
 <br/><br/>
 
 安装方法    
 ----
-1、go get github.com/george518/PPGo_Job    
+1、go get github.com/lorock/PPGo_Job    
 2、创建mysql数据库，并将ppgo_job.sql导入    
 3、修改config 配置数据库    
 4、运行 go build    

@@ -13,10 +13,10 @@ import (
 	"time"
 
 	"github.com/astaxie/beego"
-	crons "github.com/george518/PPGo_Job/crons"
-	"github.com/george518/PPGo_Job/jobs"
-	"github.com/george518/PPGo_Job/libs"
-	"github.com/george518/PPGo_Job/models"
+	crons "github.com/lorock/PPGo_Job/crons"
+	"github.com/lorock/PPGo_Job/jobs"
+	"github.com/lorock/PPGo_Job/libs"
+	"github.com/lorock/PPGo_Job/models"
 )
 
 type TaskController struct {
