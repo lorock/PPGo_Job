@@ -1,2 +1,5 @@
-
+.vscode
 PPGo_Job
+PPGo_Job.code-workspace
+debug
+*.log

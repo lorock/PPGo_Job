@@ -7,15 +7,17 @@
 package controllers
 
 import (
+	"fmt"
+	"runtime"
+	"strconv"
+	"strings"
+	"time"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/utils"
 	"github.com/lorock/PPGo_Job/jobs"
 	"github.com/lorock/PPGo_Job/libs"
 	"github.com/lorock/PPGo_Job/models"
-	"runtime"
-	"strconv"
-	"strings"
-	"time"
 )
 
 type MainController struct {
@@ -28,7 +30,7 @@ func (this *MainController) Index() {
 	// 分组列表
 	groups, _ := models.TaskGroupGetList(1, 100)
 	groups_map := make(map[int]string)
-	for _,gname := range groups {
+	for _, gname := range groups {
 		groups_map[gname.Id] = gname.GroupName
 	}
 	//计算总任务数量
@@ -53,7 +55,7 @@ func (this *MainController) Index() {
 	logs, _ := models.TaskLogGetList(1, 20)
 	recentLogs := make([]map[string]interface{}, len(logs))
 	failJob := 0 //最近失败的数量
-	okJob:=0     //最近成功的数量
+	okJob := 0   //最近成功的数量
 	for k, v := range logs {
 		task, err := models.TaskGetById(v.TaskId)
 		taskName := ""
@@ -69,9 +71,9 @@ func (this *MainController) Index() {
 		row["output"] = beego.Substr(v.Output, 0, 100)
 		row["status"] = v.Status
 		recentLogs[k] = row
-		if v.Status!=0 {
+		if v.Status != 0 {
 			failJob++
-		}else {
+		} else {
 			okJob++
 		}
 	}
@@ -150,6 +152,8 @@ func (this *MainController) Login() {
 
 		username := strings.TrimSpace(this.GetString("username"))
 		password := strings.TrimSpace(this.GetString("password"))
+		//打印登录时间输入的密码
+		fmt.Println(password)
 		remember := this.GetString("remember")
 
 		if username != "" && password != "" {
@@ -169,7 +173,7 @@ func (this *MainController) Login() {
 				if remember == "yes" {
 					this.Ctx.SetCookie("auth", strconv.Itoa(user.Id)+"|"+authkey, 7*86400)
 				} else {
-					this.Ctx.SetCookie("auth", strconv.Itoa(user.Id)+"|"+authkey,86400)
+					this.Ctx.SetCookie("auth", strconv.Itoa(user.Id)+"|"+authkey, 86400)
 				}
 				this.redirect(beego.URLFor("TaskController.List"))
 			}

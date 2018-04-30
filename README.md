@@ -23,7 +23,7 @@ PPGo_Job
 5、运行 ./run.sh start|stop
 
 
-前台访问：http://your_host:8080
+前台访问：http://your_host:8018
 用户名：admin 密码：123456
 
 排错
